@@ -7,6 +7,15 @@
     "build": "tsc",
     "test": "tape test.js"
   },
+  "files": [
+    "package.json",
+    "dist/index.js",    
+    "dist/index.js.map",
+    "dist/index.d.ts",
+    "dist/index.d.ts.map",    
+    "README",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:PAAR-IT-GmbH/bidirectional-map.git"
