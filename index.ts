@@ -1,20 +1,17 @@
 
-export default class BidirectionalMap {
-    constructor(object=null) {
-        this._map = new Map()
-        this._reverse = new Map()
-        if (object) {
-            for (let attr in object) {
-                if ({}.hasOwnProperty.call(object, attr)) {
-                    this.set(attr, object[attr])
-                }
-            }
+export default class BidirectionalMap<T, U> {
+    _map = new Map<T, U>()
+    _reverse = new Map<U, T>()
+
+    constructor(arr: Array<[T, U]> = []) {
+        for (let el of arr) {
+            this.set(el[0], el[1])
         }
     }
     get size () {
         return this._map.size
     }
-    set(key, value) {
+    set(key: T, value: U) {
         if (this._map.has(key)) {
             let _value = this._map.get(key)
             this._reverse.delete(_value)
@@ -26,22 +23,22 @@ export default class BidirectionalMap {
         this._map.set(key, value)
         this._reverse.set(value, key)
     }
-    get(key) {
+    get(key: T) {
         return this._map.get(key)
     }
-    getKey(value) {
+    getKey(value: U) {
         return this._reverse.get(value)
     }
     clear() {
         this._map.clear()
         this._reverse.clear()
     }
-    delete(key) {
+    delete(key: T) {
         let value = this._map.get(key)
         this._map.delete(key)
         this._reverse.delete(value)
     }
-    deleteValue(value) {
+    deleteValue(value: U) {
         let key = this._reverse.get(value)
         this._map.delete(key)
         this._reverse.delete(value)
@@ -49,10 +46,10 @@ export default class BidirectionalMap {
     entries() {
         return this._map.entries()
     }
-    has(key) {
+    has(key: T) {
         return this._map.has(key)
     }
-    hasValue(value) {
+    hasValue(value: U) {
         return this._reverse.has(value)
     }
     keys() {

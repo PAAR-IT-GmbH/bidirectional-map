@@ -1,17 +1,15 @@
 {
-  "name": "bidirectional-map",
-  "version": "1.0.4",
+  "name": "@paar-it-gmbh/bidirectional-map",
+  "version": "2.0.0",
   "description": "Create 'key/value' collections of one-to-one correspondence.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel index.js > dist/index.js",
-    "test": "tape test.js",
-    "preversion": "npm t",
-    "postversion": "git push && git push --tags"
+    "build": "tsc",
+    "test": "tape test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/educastellano/bidirectional-map.git"
+    "url": "git+ssh://git@github.com:PAAR-IT-GmbH/bidirectional-map.git"
   },
   "author": "Eduard Castellano",
   "license": "ISC",
@@ -20,6 +18,11 @@
   },
   "homepage": "https://github.com/educastellano/bidirectional-map#readme",
   "devDependencies": {
-    "tape": "^4.4.0"
-  }
+    "tape": "^4.4.0",
+    "typescript": "^4.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "./dist/index.d.ts"
 }

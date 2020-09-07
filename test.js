@@ -1,12 +1,12 @@
 var test = require('tape');
-var BiMap = require('./dist/index')
+var BiMap = require('./dist/index').default
 
 var makeOne = function() {
-    return new BiMap({
-        john: 'mary',
-        bob: 'alice',
-        ptolemy: 'cleopatra'
-    })
+    return new BiMap([
+        ['john', 'mary'],
+        ['bob', 'alice'],
+        ['ptolemy','cleopatra']
+    ])
 }    
 
 test('it should create an empty Map', function (t) {

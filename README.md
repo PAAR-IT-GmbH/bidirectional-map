@@ -19,10 +19,10 @@ Create "key/value" collections of one-to-one correspondence. Internally it uses 
     map.getKey('alice')     // 'bob'
 
     // Create a map with some key/values
-    let map2 = new BiMap({
-        bob: 'alice',
-        john: 'mary'
-    })
+    let map2 = new BiMap([
+        ['bob', 'alice'],
+        ['john', 'mary']
+    ])
     map2.has('bob')          // true
     map2.hasValue('mary')    // true
     map2.deleteValue('mary')
@@ -35,7 +35,7 @@ Create "key/value" collections of one-to-one correspondence. Internally it uses 
 | Arguments |   Description |
 |:---|:---|
 | | Creates an empty structure |
-| object: *object* | Creates a structure with the key/values of **object** |
+| array: *array* | Creates a structure with the elements of **object** |
 
 ### Properties
 
@@ -64,6 +64,8 @@ Create "key/value" collections of one-to-one correspondence. Internally it uses 
 
 ## Changelog
 
+* 2.0.0 
+    * Constructor rework, typing
 * 1.0.0 
     * Initial release :tada:
 
