@@ -2,33 +2,32 @@
 
 Create "key/value" collections of one-to-one correspondence. Internally it uses two [Map](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Map) objects, so both keys and values can be of any type.
 
-# Install
+## Install
 
-    npm install bidirectional-map --save
+    npm install @paar-it-gmbh/bidirectional-map --save
 
-# Usage
-
+## Usage
 
 ```js
-    import BiMap from 'bidirectional-map'
-    
-    // Create an empty map
-    let map = new BiMap()
-    map.set('bob', 'alice')
-    map.get('bob')          // 'alice'
-    map.getKey('alice')     // 'bob'
+import BiMap from '@paar-it-gmbh/bidirectional-map'
 
-    // Create a map with some key/values
-    let map2 = new BiMap([
-        ['bob', 'alice'],
-        ['john', 'mary']
-    ])
-    map2.has('bob')          // true
-    map2.hasValue('mary')    // true
-    map2.deleteValue('mary')
+// Create an empty map
+let map = new BiMap()
+map.set('bob', 'alice')
+map.get('bob')          // 'alice'
+map.getKey('alice')     // 'bob'
+
+// Create a map with some key/values
+let map2 = new BiMap([
+    ['bob', 'alice'],
+    ['john', 'mary']
+])
+map2.has('bob')          // true
+map2.hasValue('mary')    // true
+map2.deleteValue('mary')
 ```
 
-# API
+## API
 
 ### Constructors
 
@@ -59,15 +58,14 @@ Create "key/value" collections of one-to-one correspondence. Internally it uses 
 | keys |  | *MapIterator* | Returns a new Iterator object that contains the **keys** for each element in the structure |
 | values |  | *MapIterator* | Returns a new Iterator object that contains the **values** for each element in the structure |
 
-
-
-
 ## Changelog
 
-* 2.0.0 
-    * Constructor rework, typing
-* 1.0.0 
-    * Initial release :tada:
+* 3.0.0
+* Improved typings, strict mode
+* 2.0.0
+* Constructor rework, typing
+* 1.0.0
+* Initial release :tada:
 
 ## License
 

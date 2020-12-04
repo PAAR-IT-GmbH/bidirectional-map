@@ -1,6 +1,6 @@
 {
   "name": "@paar-it-gmbh/bidirectional-map",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Create 'key/value' collections of one-to-one correspondence.",
   "main": "dist/index.js",
   "scripts": {
@@ -9,10 +9,10 @@
   },
   "files": [
     "package.json",
-    "dist/index.js",    
+    "dist/index.js",
     "dist/index.js.map",
     "dist/index.d.ts",
-    "dist/index.d.ts.map",    
+    "dist/index.d.ts.map",
     "README",
     "LICENSE"
   ],
@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/educastellano/bidirectional-map#readme",
   "devDependencies": {
-    "tape": "^4.4.0",
-    "typescript": "^4.0.2"
+    "tape": "^5.0.1",
+    "typescript": "^4.1.2"
   },
   "publishConfig": {
     "access": "public"
