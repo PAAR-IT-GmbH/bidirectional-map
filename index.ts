@@ -12,21 +12,19 @@ export default class BidirectionalMap<T, U> {
         return this._map.size
     }
     set(key: T, value: U) {
-        if (this._map.has(key)) {
-            let _value = this._map.get(key)
-            this._reverse.delete(_value)
-        }
-        if (this._reverse.has(value)) {
-            let _key = this._reverse.get(value)
-            this._map.delete(_key)
-        }
+        let _value = this._map.get(key)
+        if(_value !== undefined) this._reverse.delete(_value)
+    
+        let _key = this._reverse.get(value)
+        if(_key !== undefined) this._map.delete(_key)
+        
         this._map.set(key, value)
         this._reverse.set(value, key)
     }
     get(key: T) {
         return this._map.get(key)
     }
-    getKey(value: U) {
+    getKey(value: U): T | undefined {
         return this._reverse.get(value)
     }
     clear() {
@@ -35,13 +33,17 @@ export default class BidirectionalMap<T, U> {
     }
     delete(key: T) {
         let value = this._map.get(key)
+        if(value === undefined) return false
         this._map.delete(key)
         this._reverse.delete(value)
+        return true
     }
     deleteValue(value: U) {
         let key = this._reverse.get(value)
+        if(key === undefined) return false
         this._map.delete(key)
         this._reverse.delete(value)
+        return true
     }
     entries() {
         return this._map.entries()
